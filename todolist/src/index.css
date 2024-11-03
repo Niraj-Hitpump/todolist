@@ -1,0 +1,50 @@
+/* for home */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.create_input {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid;
+    outline: none;
+}
+.create_button {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* for task */
+.task {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    height: 35px;
+    padding: 2px 5px 2px 5px;
+    margin-top: 10px;
+}
+.checkbox{
+    display: flex;
+    align-items: center;
+}
+.line-through{
+    text-decoration: line-through;
+}
+.checkbox .icon{
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+.task div span{
+    margin: 0px 5px 0px 5px;
+}
+.task div .icon{
+    cursor: pointer;
+}
