@@ -5,7 +5,11 @@ const todomodel = require('./Models/Todo')
 
 const app = express()
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ["https://deploy-mernvercel.vercel.app"],  
+    methods: ["GET", "POST"],                           
+    credentials: true                                 
+}));
 
 mongoose.connect('mongodb+srv://pythoncourse053:unoN2Rjj8PvqZs64@masterall.h6zzb.mongodb.net/mern')
 
@@ -22,19 +26,12 @@ app.put('/update',(req,res)=>{
     .catch(err=>res.json(err))
 })
 
-app.delete("/delete/:id", (req, res) => {
-    const { id } = req.params;
-    todomodel.findByIdAndDelete(id) // Directly pass `id` here
-        .then(result => {
-            if (result) {
-                res.json({ success: true, id });
-            } else {
-                res.status(404).json({ success: false, message: "Item not found" });
-            }
-        })
-        .catch(err => res.status(500).json({ success: false, error: err.message }));
-});
-
+app.delete("delete/:id",(req,res)=>{
+    const {id}=req.params;
+    todomodel.findByIdAndDelete({_id:id})
+    .then(result=>res.json(result))
+    .catch(err=>res.json(err))
+})
 
 app.post('/add',(req,res)=>{
     const task=req.body.task;
