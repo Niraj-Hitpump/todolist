@@ -12,7 +12,8 @@ const Home = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:3001/get")
+            .get("todolist-nine-jet-31.vercel.app
+/get")
             .then((res) => {
                 setTodos(res.data);
             })
@@ -23,7 +24,8 @@ const Home = () => {
 
     const handleEdit = (id) => {
         axios
-            .put("http://localhost:3001/update", { id: id })
+            .put("todolist-nine-jet-31.vercel.app
+/update", { id: id })
             .then(() => {
                 // Toggle the `done` status in the local state
                 setTodos(todos.map(todo => 
@@ -37,7 +39,8 @@ const Home = () => {
 
     const handleDelete = (id) => {
         axios
-            .delete("http://localhost:3001/delete/" + id)
+            .delete("todolist-nine-jet-31.vercel.app
+/delete/" + id)
             .then((res) => {
                 if (res.data.success) {
                     setTodos(todos.filter(todo => todo._id !== id)); // Update state without reload
