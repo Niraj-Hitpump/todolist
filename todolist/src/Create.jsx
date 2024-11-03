@@ -10,7 +10,8 @@ const Create = ({ setTodos, todos }) => {
       return;
     }
 
-    axios.post('http://localhost:3001/add', { task })
+    axios.post('todolist-nine-jet-31.vercel.app
+/add', { task })
       .then((result) => {
         // Add the new task to the todos state without reloading
         setTodos([...todos, { _id: result.data._id, task, done: false }]);
